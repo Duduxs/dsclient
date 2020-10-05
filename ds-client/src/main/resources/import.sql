@@ -1,0 +1,10 @@
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Eduardo José','11270099400', 1400.0, '2000-11-04T10:30:00Z', 0);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('João Ducati Amaral','61339861070', 3600.0, '2000-03-15T10:30:00Z', 2);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Davi Teixeira Gomes','92365942474', 2400.0, '2000-02-02T11:02:00Z', 1);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Heitor Amaral Ducati','28860488958', 11400.0, '2000-09-14T07:30:00Z', 3);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('João Amaral Teixeira','08031967920', 400.0, '2000-10-24T16:02:00Z', 4);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Gabriel Gomes Ducati','48903291964', 1400.0, '1960-11-29T01:01:00Z', 4);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Bernardo Gomes Amaral','39122475796', 1850.0, '1999-03-24T11:40:00Z', 1);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Isabela Gomes Amaral','71839003987', 6000.0, '1990-06-16T16:16:16Z', 2);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Mariana Ducati Teixeira','09968399841', 5500.0, '1997-04-22T10:30:00Z', 0);
+INSERT INTO tb_client (name,cpf,income,birth_Date,children) VALUES ('Giovana Ducati Machado','62064632735', 1490.50, '2010-10-03T15:59:00Z', 1);
