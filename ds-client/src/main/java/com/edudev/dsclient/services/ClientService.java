@@ -29,4 +29,9 @@ public class ClientService {
 		Optional<Client> client = repository.findById(id);
 		return client.orElseThrow(() -> new ResourceNotFound("Resource not founded!"));
 	}
+	
+	@Transactional
+	public Client insert(Client client) {
+		return repository.save(client);
+	}
 }
