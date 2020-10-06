@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,30 +34,36 @@ public class ClientResource {
 			@RequestParam(value = "linesPerPage", defaultValue = "3") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
 			@RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
-		
+
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		Page<Client> list = service.findAllPagination(pageRequest);
 
 		return ResponseEntity.ok().body(list);
 	}
-	
+
 	@GetMapping("/{id}")
-	public ResponseEntity<Client> findById(@PathVariable Long id){
+	public ResponseEntity<Client> findById(@PathVariable Long id) {
 		Client client = service.findById(id);
 		return ResponseEntity.ok().body(client);
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<Client> insert(@RequestBody Client client){
+	public ResponseEntity<Client> insert(@RequestBody Client client) {
 		service.insert(client);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(client.getId()).toUri();	
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(client.getId()).toUri();
 		return ResponseEntity.created(uri).body(client);
 	}
-	
+
 	@PutMapping("/{id}")
-	public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client client){
+	public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client client) {
 		Client clientUpdated = service.update(id, client);
 		return ResponseEntity.ok().body(clientUpdated);
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		service.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 
 }

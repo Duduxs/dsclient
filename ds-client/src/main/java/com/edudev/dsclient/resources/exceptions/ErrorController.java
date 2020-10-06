@@ -15,7 +15,7 @@ import com.edudev.dsclient.services.exceptions.ResourceNotFound;
 public class ErrorController {
 
 	@ExceptionHandler(ResourceNotFound.class)
-	public ResponseEntity<StandardError> resourceNotFound(ResourceNotFound e, HttpServletRequest request){
+	public ResponseEntity<StandardError> resourceNotFound(ResourceNotFound e, HttpServletRequest request) {
 		StandardError error = new StandardError();
 		error.setTimestamp(Instant.now());
 		error.setStatus(HttpStatus.NOT_FOUND.value());

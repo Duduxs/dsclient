@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -25,9 +25,9 @@ public class Client implements Serializable {
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant birthDate;
 	private Integer children;
-	
+
 	public Client() {
-		
+
 	}
 
 	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
@@ -111,7 +111,5 @@ public class Client implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }
