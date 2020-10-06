@@ -2,6 +2,8 @@ package com.edudev.dsclient.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,5 +35,26 @@ public class ClientService {
 	@Transactional
 	public Client insert(Client client) {
 		return repository.save(client);
+	}
+	
+	@Transactional
+	public Client update(Long id, Client client) {
+		try {
+		Client clientUpdate = repository.getOne(id);
+		updateClient(clientUpdate, client);
+		return repository.save(clientUpdate);
+		}
+		catch(EntityNotFoundException e) {
+			throw new ResourceNotFound("Resource not founded");
+		}	
+	}
+	
+	private void updateClient(Client clientUpdate, Client client) {
+		clientUpdate.setName(client.getName());
+		clientUpdate.setCpf(client.getCpf());
+		clientUpdate.setIncome(client.getIncome());
+		clientUpdate.setChildren(client.getChildren());
+		clientUpdate.setBirthDate(client.getBirthDate());
+		
 	}
 }
